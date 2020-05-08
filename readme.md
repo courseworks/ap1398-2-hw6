@@ -683,3 +683,5 @@ fact = Factorial()
 print(fact(5))  #  output: 120
 print(fact.dict) # output: {1: 1, 2: 2, 3: 6, 4: 24, 5: 120}
 ```
+
+![Python](stuff/python.jpeg)
