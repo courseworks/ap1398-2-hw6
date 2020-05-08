@@ -662,3 +662,24 @@ You can use printBasicInfo of a customer, preceded by a `Real` or `Legal`. exmap
 
 ## There is always more!
 ![moreCPP](stuff/cpp20.png)
+
+# Python
+In this homework you're going to do some very easy tasks in python for the beginning...
+
+## Image(File) Coding
+In this task, you must define a ```code``` function which gets an image name (filename) and a function. It then reads each byte of the file and passes it to the given function and replaces that byte with the function output. In this way, you're somehow *coding* the file so that the operator system can no longer open and display that image (file). To get the file back you must do the same procedure with the inverse of that function. The function should work like this
+
+```python
+code('a.jpg', lambda x: 255 - x)
+```
+
+**Question 9**: What happens when you run the above code twice? Explain.
+
+## Factorial and Dynamic Programming
+In this task, you would implement the **Factorial** class. It must have a **dict** as its member function so that whenever it found factorial of a new number, it stores it in the **dict** variable. Your class should work like the below codes.
+
+```python
+fact = Factorial()
+print(fact(5))  #  output: 120
+print(fact.dict) # output: {1: 1, 2: 2, 3: 6, 4: 24, 5: 120}
+```
