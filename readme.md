@@ -1,3 +1,17 @@
+<center>
+<h1>
+In The Name Of ALLAH
+</h1>
+<h2>
+Advanced Programming - Homework 6
+</h2>
+<h2>
+Dr.Amir Jahanshahi
+</h2>
+<h3>
+Deadline: Friday, 2 Khordad - 23:00
+</center>
+
 
 # Storehouse Management
 
@@ -684,4 +698,5 @@ print(fact(5))  #  output: 120
 print(fact.dict) # output: {1: 1, 2: 2, 3: 6, 4: 24, 5: 120}
 ```
 
-![Python](stuff/python.jpeg)
+<img src="stuff/python.jpeg" width="400">
+
