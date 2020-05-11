@@ -13,6 +13,7 @@ Deadline: Friday, 2 Khordad - 23:00
 </center>
 
 
+
 # Storehouse Management
 
 The Customs has been managing their entrepot using outdated methods. Having faced with some problems, the heads of Customs eventually decided to use computers to keep track of their stuff.
@@ -77,36 +78,39 @@ Also, set the _weight_ to `0.1` (as a default). This weight is supposed to repre
 For some reasons, we dont want users to be able to make a copy of this class (this is temporary, though). The question is, How do you ban users from copying *BasicGoods* objects? how do you define these: 
 ```C++
 BasicGoods(BasicGoods&);
-BasicGoodsBasicGoods&&);
+BasicGoods(BasicGoods&&);
 ```
 
 * **Question2:** 
+
 ```C++ 
-virtual ~BasicGoods(); ```
+virtual ~BasicGoods();
+```
 
 You know that we want to inherit this class into *Food*, *Appliance* and *Material* and also, we are going to define this class's destructor as virtual. Can you describe a situation where `making this _virtual_` is avoiding some problems?
 
 
-* ```C++
+* fixed price:
+
+```C++
 virtual double getEndPrice(void) const;
 ```
 This function should apply the adjusted tax rate (`taxRate`) to the `basePrice` and return the fixed price (which ordinary people would pay for it).
 
-$$
-\begin{align}
-End Price = basePrice * (1+\frac {taxRate} {100})
-\end{align}
-$$
 
-* ```C++
+![formula](stuff/fr1.png)
+
+* Tax which people will pay :
+
+```C++
 virtual double getTaxPrice(void) const;
 ```
 
 This funciton calculates how much people are payin as tax, it is defined as:
 
-$$
-TaxPrice = basePrice * \frac {taxRate} {100}
-$$
+
+![formula](stuff/fr2.png)
+
 
 * getters and setters
 
@@ -117,9 +121,10 @@ virtual double getWeight(void) const;
 virtual double getVolume(void) const;
 ```
 What these getters and setters do is obvious from their names. The volume is the product of elemnts of approxDim:
-$$
-volume = approxDim[0] * approxDim[1] * approxDim[2]
-$$
+
+
+
+![formu](stuff/fr10.png)
 
 ```C++
 // setters
@@ -195,9 +200,11 @@ double getWeight(void) const;
 std::time_t getRemainingExp(void) const;
 ```
 To calculate the EndPrice you have to use following rule:
-$$
-EndPrice = basePrice * (1 + \frac {taxRate - SUBSIE} {100})
-$$
+
+
+
+![form](stuff/fr3_0.png)
+
 
 Calculating `TaxPrice` goes the same way BasicGood goes, but remember to _subtract_ the `SUBSIDE`
 
@@ -278,10 +285,9 @@ setWeight only sets the Appliance weight.
 
 * EndPrice policy: When an Appliance has High EnergyCost, you should use `APPLIANCE_EXTRA_TAX_HIGH` plus the base taxRate, otherwise you have to use `APPLIANCE_EXTRA_TAX_MEDIUM` .
 
-$$
-EndPrice = basePrice * (1+\frac {taxRate+(APPLIANCE . EXTRA . TAX . ?)} {100})
-$$
 
+
+![formu](stuff/fr4.png)
 
 **Question5** How do you give access to users for `approxDim` of the BasicGoods in this class as public? 
 (Also give this access in your code, too)
@@ -303,9 +309,10 @@ Set the default `MAT_TYPE` to `NORMAL` so that users be able to create Materials
 Materials have a `CONSUMABLE` GoodsType.
 
 Again to calculate the EndPrice, add the extra tax rate of material (which is 1.5%) to the taxRate, when calculating it:
-$$
-EndPrice = basePrice * (1 + \frac {taxRate + ExtraTax} {100})
-$$
+
+
+
+![formu](stuff/fr5.png)
 
 _Do not alter `taxRate` of BasicGoods in any class_.
 
@@ -428,16 +435,18 @@ setTaxRate sets the taxRate Product's taxRate, not the one for BasicGoods.
 
 If you want to calculate EndPrice, use Product's taxRate and also EXTRA TAX OF APPLIANCE based on the policy of appliance (EnergyCost determines ):
 
-$$
-EndPrice = basePrice * (1 + \frac {ProductTaxRate + ApplianceExtraTax} {100})
-$$
+
+
+![formu](stuff/fr6.png)
 
 
 The TaxPrice for the a Product is calculated as following:
 
-$$
-EndPrice = basePrice * ( \frac {ProductTaxRate + ApplianceExtraTax} {100})
-$$
+
+
+![formu](stuff/fr7.png)
+
+
 
 For example consider a product:
 
@@ -447,9 +456,9 @@ For example consider a product:
 
 > calling setTaxRate(33);
 
-$$
-EndPrice = 500 * (1 + \frac {23 + 17} {100}) = 750
-$$
+
+
+![formu](stuff/fr8.png)
 
 #### Congratulations!
 you have completed all types of required goods holders. now its time to focus on people and their money!
@@ -470,9 +479,13 @@ std::deque< std::shared_ptr<BasicGoods> > assets;
 ```
 
 _totalChargedTax_ will hold the sum of taxes which that customer is paying, it is usually :
-$$
-    totalChargedTax = \sum (basePrice * \frac {Proper.tax.rate} {100})
-$$
+
+
+
+
+
+![formula](stuff/fr9.png)
+
 
 For each goods, tax rate is different.
 
@@ -676,6 +689,7 @@ You can use printBasicInfo of a customer, preceded by a `Real` or `Legal`. exmap
 
 ## There is always more!
 ![moreCPP](stuff/cpp20.png)
+
 
 # Python
 In this homework you're going to do some very easy tasks in python for the beginning...
