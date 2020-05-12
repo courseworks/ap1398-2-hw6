@@ -3,7 +3,7 @@ CXX_FLAGS = -std=c++17 -Wall -I h -I /usr/local/include/gtest/ -c
 LXX_FLAGS = -std=c++17 -pthread
 TARGET = main
 GTEST = /usr/local/lib/libgtest.a
-OBJECTS = obj/main.o ./obj/food.o ./obj/basicGoods.o ./obj/appliance.o ./obj/Storehouse.o ./obj/productID.o ./obj/product.o ./obj/material.o ./obj/customer.o ./obj/realCustomer.o ./obj/legalCustomer.o
+OBJECTS = obj/main.o ./obj/aphw6.o ./obj/food.o ./obj/basicGoods.o ./obj/appliance.o ./obj/Storehouse.o ./obj/productID.o ./obj/product.o ./obj/material.o ./obj/customer.o ./obj/realCustomer.o ./obj/legalCustomer.o
 
 
 $(TARGET): $(OBJECTS)
@@ -12,8 +12,8 @@ $(TARGET): $(OBJECTS)
 ./obj/main.o: ./cpp/main.cpp
 	$(CXX) $(CXX_FLAGS) ./cpp/main.cpp -o $@
 
-./obj/aphw6.o: ./cpp/aphw6_unittest.cpp
-	$(CXX) $(CXX_FLAGS) ./cpp/aphw6_unittest.cpp -o $@
+./obj/aphw6.o: ./cpp/aphw6_unittests.cpp
+	$(CXX) $(CXX_FLAGS) ./cpp/aphw6_unittests.cpp -o $@
 
 ./obj/basicGoods.o: ./cpp/basicGoods.cpp
 	$(CXX) $(CXX_FLAGS) ./cpp/basicGoods.cpp -o $@
