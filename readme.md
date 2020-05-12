@@ -713,5 +713,5 @@ print(fact(5))  #  output: 120
 print(fact.dict) # output: {1: 1, 2: 2, 3: 6, 4: 24, 5: 120}
 ```
 
-<img src="stuff/python.jpeg" width="400">
+<img src="stuff/python.jpeg" width="250">
 
