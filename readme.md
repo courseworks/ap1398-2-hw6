@@ -14,6 +14,7 @@ Deadline: Friday, 2 Khordad - 23:00
 
 
 
+
 # Storehouse Management
 
 The Customs has been managing their entrepot using outdated methods. Having faced with some problems, the heads of Customs eventually decided to use computers to keep track of their stuff.
@@ -26,6 +27,7 @@ In this homework you are going to ease the management of a massive goods depot. 
 ## Goods are supposed to be designed Good!
 
 Before we start, lets take a look at the hierarchy:
+
 ![Goods Hierarchy](stuff/Goods.png)
 
 As you can see, We need you to create these classes:
@@ -87,7 +89,7 @@ BasicGoods(BasicGoods&&);
 virtual ~BasicGoods();
 ```
 
-You know that we want to inherit this class into *Food*, *Appliance* and *Material* and also, we are going to define this class's destructor as virtual. Can you describe a situation where `making this _virtual_` is avoiding some problems?
+You know that we want to inherit this class into *Food*, *Appliance* and *Material* and also, we are going to define this class's destructor as virtual. Can you describe a situation where *making this function* **virtual** is avoiding some problems?
 
 
 * fixed price:
@@ -127,9 +129,8 @@ What these getters and setters do is obvious from their names. The volume is the
 ![formu](stuff/fr10.png)
 
 ```C++
-// setters
+// public setters
 void setOriginCountry(const std::string& cnt);
-void setNewPrice(double price);
 void setAppearance(PACK_TYPE pck, std::shared_ptr< std::array<double,3> > dimen);
 ```
 
@@ -145,7 +146,7 @@ The policy for two BasicGoods to be __Equal__ is to have same :
 Operator< : when comparing two BasicGoods, you have to compare the fixed price of them i.e. EndPrice (the only exception is Food objects - they will be discussed later in Foods). Note that a BasicGoods can sometimes point to a derrived class thus you have to be careful when comparing...
 
 
-* Private method:
+* Protected method:
 ```C++
 void setNewPrice(double price);
 ```
