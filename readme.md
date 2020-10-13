@@ -12,7 +12,7 @@ Dr.Amir Jahanshahi
 Deadline: Friday, 2 Khordad - 23:00
 </center>
 
-
+## Note: [Here](https://github.com/sina-lib/AP1398-2-HW6Sol) is the official solution of this HW, provided by TA member and designer of this series. Now available on Github!
 
 
 # Storehouse Management
